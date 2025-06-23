@@ -1,0 +1,24 @@
+{
+  "manifest_version": 3,
+  "name": "Real-Time Translation",
+  "description": "Translate selected text using Google Translate API.",
+  "version": "1.0",
+  "permissions": [
+    "activeTab",
+    "storage",
+    "contextMenus",
+    "https://translation.googleapis.com/"
+  ],
+  "background": {
+    "service_worker": "background.js"
+  },
+  "content_scripts": [
+    {
+      "matches": ["<all_urls>"],
+      "js": ["content.js"]
+    }
+  ],
+  "action": {
+    "default_popup": "popup.html"
+  }
+}
