@@ -35,8 +35,8 @@ function displayTranslation(translatedText) {
   div.style.position = 'absolute';
   div.style.left = '10px';
   div.style.top = '10px';
-  div.style.backgroundColor = 'rgba(0, 0, 0, 0.7)';
-  div.style.color = 'white';
+  div.style.backgroundColor = 'while';
+  div.style.color = 'black';
   div.style.padding = '10px';
   div.style.borderRadius = '5px';
   div.innerText = translatedText;
@@ -45,5 +45,5 @@ function displayTranslation(translatedText) {
 
   setTimeout(() => {
     document.body.removeChild(div);
-  }, 5000);
+  }, 3000);
 }

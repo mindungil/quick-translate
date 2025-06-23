@@ -10,7 +10,7 @@ document.addEventListener('mouseup', function(event) {
 // 특수문자 포함 여부를 체크하는 함수
 function containsSpecialChars(str) {
   // 특수문자 패턴 정의
-  const specialCharPattern = /[!@#$%^&*(),.?":{}|<>]/;
+  const specialCharPattern = /[!@#$%^&*(),?":{}|<>]/;
   
   return specialCharPattern.test(str);
 }
