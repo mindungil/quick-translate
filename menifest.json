@@ -7,7 +7,9 @@
     "activeTab",
     "storage",
     "contextMenus",
-    "https://translation.googleapis.com/"
+    "https://api-free.deepl.com/*",
+    "https://api.deepl.com/*",
+    "https://api-free.deepl.com/*"
   ],
   "background": {
     "service_worker": "background.js"

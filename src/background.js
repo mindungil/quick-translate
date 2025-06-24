@@ -8,25 +8,27 @@ chrome.contextMenus.onClicked.addListener((info, tab) => {
   const selectedText = info.selectionText;
 
   if (selectedText) {
-    fetch(`https://translation.googleapis.com/language/translate/v2?key=API_KEY`, {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json',
-      },
-      body: JSON.stringify({
-        q: selectedText,
-        target: 'ko', // 원하는 언어로 변경
-      })
-    })
-    .then(response => response.json())
-    .then(data => {
-      const translatedText = data.data.translations[0].translatedText;
-      chrome.scripting.executeScript({
-        target: { tabId: tab.id },
-        func: displayTranslation,
-        args: [translatedText],
-      });
+    fetch('https://api.deepl.com/v2/translate', {
+  method: 'POST',
+  headers: {
+    'Content-Type': 'application/json',
+    'Authorization': 'DeepL-Auth-Key YOUR_AUTH_KEY', // 실제 키 입력
+  },
+  body: JSON.stringify({
+    text: [selectedText],
+    target_lang: 'KO' 
+  })
+})
+  .then(response => response.json())
+  .then(data => {
+    const translatedText = data.translations[0].text;
+    chrome.scripting.executeScript({
+      target: { tabId: tab.id },
+      func: displayTranslation,
+      args: [translatedText],
     });
+  })
+  .catch(error => console.error('Translation failed:', error));
   }
 });
 

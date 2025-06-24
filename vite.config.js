@@ -6,9 +6,9 @@ export default defineConfig({
     rollupOptions: {
       input: {
         // 각 스크립트 파일 및 HTML 파일을 빌드 입력으로 설정
-        popup: resolve(__dirname, 'popup.html'),
+        popup: resolve(__dirname, 'index.html'),
         content: resolve(__dirname, 'src/content.js'),
-        controller: resolve(__dirname, 'src/controller.js'),
+        controller: resolve(__dirname, 'src/background.js'),
       },
       output: {
         entryFileNames: '[name].js',  // 각 entry 파일에 대해 파일 이름 그대로 사용
